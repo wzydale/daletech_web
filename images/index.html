@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Dale Tech Image Uploader</title>
+  <link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css">
+  <style type="text/css">
+  
+          body { margin: auto; max-width: 720px; word-wrap:break-word; }
+  </style>
+</head>
+<body>
+<h1><br>Dale Tech 图片上传工具</h1>
+<p><br>由阿里云计算提供存储及CDN服务</p>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+  <legend>拖拽上传</legend>
+</fieldset>
+
+<div class="layui-upload-drag" id="upload">
+  <i class="layui-icon"></i>
+  <p>点击上传，或将图片拖拽到此处</p>
+</div>
+
+<div class="layui-hide" id="uploadDemoView">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+          <legend>文件信息</legend>
+        </fieldset>
+        <img src="" alt="上传成功后渲染" style="max-width: 300px"><hr>
+        <span id="url"></span>
+</div>
+
+<script src="https://www.layuicdn.com/layui-v2.5.6/layui.js"></script>
+<script>
+layui.use(['layer', 'form', 'upload'], function(){
+  var layer = layui.layer
+  ,$ = layui.jquery
+  ,form = layui.form
+  ,upload = layui.upload;
+
+  upload.render({
+    elem: '#upload'
+    ,url: 'https://blog.wzydale.com/alicdnimageuploader.php' 
+    ,done: function(res){
+      layer.msg('上传成功');
+      layui.$('#uploadDemoView').removeClass('layui-hide').find('img').attr('src',res.url);
+      layui.$('#url').html(res.url);
+      //console.log(res)
+    }
+  });
+});
+</script>
+</body>
+</html>
