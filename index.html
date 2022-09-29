@@ -33,11 +33,19 @@
     <div class="notfound">
         <h2>宁静致远</h2>
         <br>
-        <div ><p ><a id="footer" href="https://beian.miit.gov.cn/" target="_blank"
-                                    title="ICP">鲁ICP备17022022号</a></p></div>
+        <div><p><a id="footer" href="https://beian.miit.gov.cn/" target="_blank"
+                   title="ICP">鲁ICP备17022022号</a></p></div>
     </div>
 </div>
 </body>
 <script>
+    try {
+        console.log(top.location.href)
+        console.log("鲁ICP备17022022号-2")
+        document.getElementById('footer').text = "鲁ICP备17022022号-2"
+    } catch (err) {
+        console.log("鲁ICP备17022022号-4")
+        document.getElementById('footer').text = "鲁ICP备17022022号-4"
+    }
 </script>
 </html>
