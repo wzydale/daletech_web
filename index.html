@@ -40,9 +40,11 @@
 </body>
 <script>
     if (window.location.href.search("zhiyuancs") != -1){
+        console.log("鲁ICP备17022022号-4")
         document.getElementById('footer').text = "鲁ICP备17022022号-4"
     }
-    else if (window.location.href.search("daletech") != -1){
+    if (window.location.href.search("daletech") != -1){
+        console.log("鲁ICP备17022022号-2")
         document.getElementById('footer').text = "鲁ICP备17022022号-2"
     }
 </script>
